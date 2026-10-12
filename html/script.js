@@ -8,7 +8,7 @@ let tasks = [];
 // ดึงข้อมูลงานทั้งหมดจาก Backend
 const fetchTasks = async () => {
     try {
-        const response = await fetch('https://cpe-task-api-67543206032.onrender.com');
+        const response = await fetch('https://backend-lab14.onrender.com');
         const data = await response.json();
 
         tasks = data.map(item => {
@@ -30,7 +30,7 @@ const fetchTasks = async () => {
 // เพิ่มงาน
 const addTask = async (title, priority) => {
     try {
-        await fetch('https://cpe-task-api-67543206032.onrender.com/tasks', {
+        await fetch('https://backend-lab14.onrender.com/tasks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json' // ต้องบอกเซิร์ฟเวอร์ว่าส่ง JSON ไป
@@ -48,7 +48,7 @@ const addTask = async (title, priority) => {
 // สลับสถานะงาน
 const toggleTaskStatus = async (id) => {
     try {
-        await fetch(`https://cpe-task-api-67543206032.onrender.com/tasks/${id}`, {
+        await fetch(`https://backend-lab14.onrender.com/tasks/${id}`, {
             method: 'PUT'
         });
         fetchTasks(); // ดึงข้อมูลใหม่
@@ -60,7 +60,7 @@ const toggleTaskStatus = async (id) => {
 // ลบงาน
 const deleteTask = async (id) => {
     try {
-        await fetch(`https://cpe-task-api-67543206032.onrender.com/tasks/${id}`, {
+        await fetch(`https://backend-lab14.onrender.com/tasks/${id}`, {
             method: 'DELETE'
         });
         fetchTasks(); // ดึงข้อมูลใหม่

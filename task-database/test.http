@@ -1,0 +1,27 @@
+### ข้อ 8-9: ทดสอบลบโดยไม่มี Token (ต้องได้ 401)
+DELETE http://localhost:3000/tasks/000000000000000000000000
+
+### ข้อ 11: สมัครสมาชิก
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "password123"
+}
+
+### ข้อ 12: ล็อกอิน (คัดลอก token ที่ได้ไว้)
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "password123"
+}
+
+### ดึงงานทั้งหมด (เอา _id ไปใช้ลบ)
+GET http://localhost:3000/tasks
+
+### ข้อ 15: ลบงานโดยมี Token
+DELETE http://localhost:3000/tasks/<ใส่_id_ของงาน_จริงๆ>
+Authorization: Bearer <วาง_Token_ที่_Copy_มาตรงนี้>

@@ -8,7 +8,10 @@ let tasks = [];
 // ดึงข้อมูลงานทั้งหมดจาก Backend
 const fetchTasks = async () => {
     try {
-        const response = await fetch('https://backend-lab14.onrender.com');
+        const response = await fetch(
+            'https://backend-lab14.onrender.com/tasks'
+        );
+
         const data = await response.json();
 
         tasks = data.map(item => {
@@ -16,7 +19,7 @@ const fetchTasks = async () => {
                 id: item._id,
                 title: item.title,
                 completed: item.completed,
-                priority: item.priority || "low" // กำหนดค่าเริ่มต้นเอง
+                priority: item.priority || "low"
             };
         });
 
